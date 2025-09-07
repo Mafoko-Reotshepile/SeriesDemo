@@ -4,6 +4,9 @@
  */
 package seriesdemoapp;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author RC_Student_lab
@@ -34,5 +37,6 @@ public class Series
         }
     
 }//End of inner class
-    
+    private ArrayList<SeriesData> seriesList = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);   
 }//End of class
