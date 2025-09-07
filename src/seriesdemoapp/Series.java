@@ -184,7 +184,8 @@ public class Series
         System.out.println("(6) Exit Application");
     }
     
-     public void handleMenuChoice() {
+     public void handleMenuChoice() 
+     {
         String choice = scanner.nextLine();
         switch (choice) 
         {
@@ -197,5 +198,68 @@ public class Series
             default: System.out.println("Invalid choice, try again.");
         }
         
-    }    
+    }
+     
+    // Add a new series directly (for unit testing)
+public boolean addSeries(String id, String name, int age, int episodes) 
+{
+    if (age < 2 || age > 18) 
+    {
+        return false;
+    }
+    for (SeriesData s : seriesList) 
+    {
+        if (s.seriesId.equals(id)) 
+        {
+            return false; // Series ID already exists
+        }
+    }
+    seriesList.add(new SeriesData(id, name, age, episodes));
+    return true;
+}
+
+// Get a series by ID (for searching)
+public SeriesData getSeriesById(String id) 
+{
+    for (SeriesData s : seriesList) 
+    {
+        if (s.seriesId.equals(id)) 
+        {
+            return s;
+        }
+    }
+    return null;
+}
+
+// Update a series by ID
+public boolean updateSeriesById(String id, String newName, int newAge, int newEpisodes) 
+{
+    for (SeriesData s : seriesList) 
+    {
+        if (s.seriesId.equals(id)) 
+        {
+            if (newAge < 2 || newAge > 18) return false;
+            s.seriesName = newName;
+            s.seriesAge = newAge;
+            s.numberOfEpisodes = newEpisodes;
+            return true;
+        }
+    }
+    return false;
+}
+
+// Delete a series by ID
+public boolean deleteSeriesById(String id) 
+{
+    for (SeriesData s : seriesList) 
+    {
+        if (s.seriesId.equals(id)) 
+        {
+            seriesList.remove(s);
+            return true;
+        }
+    }
+    return false;
+}
+
 }//End of class
