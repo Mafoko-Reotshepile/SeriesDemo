@@ -15,7 +15,21 @@ public class SeriesDemoApp {
      */
     public static void main(String[] args) 
     {
-        // TODO code application logic here
+        Series seriesApp = new Series();
+
+        System.out.println("LATEST SERIES - 2025");
+        System.out.println("***********************************");
+        System.out.println("Enter (1) to launch menu or any other key to exit");
+
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        if (sc.nextLine().equals("1")) {
+            while (true) {
+                seriesApp.displayMenu();
+                seriesApp.handleMenuChoice();
+            }
+        } else {
+            System.out.println("Application closed.");
+        }
     }
     
 }
