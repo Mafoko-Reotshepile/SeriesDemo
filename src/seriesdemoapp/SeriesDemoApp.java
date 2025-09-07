@@ -22,12 +22,17 @@ public class SeriesDemoApp {
         System.out.println("Enter (1) to launch menu or any other key to exit");
 
         java.util.Scanner sc = new java.util.Scanner(System.in);
-        if (sc.nextLine().equals("1")) {
-            while (true) {
+        if (sc.nextLine().equals("1")) 
+        {
+            while (true) 
+            {
                 seriesApp.displayMenu();
                 seriesApp.handleMenuChoice();
             }
-        } else {
+        } 
+        else 
+        
+        {
             System.out.println("Application closed.");
         }
     }

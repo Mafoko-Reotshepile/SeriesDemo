@@ -10,6 +10,29 @@ package seriesdemoapp;
  */
 public class Series 
 {
+    class SeriesData 
+    {
+        String seriesId;
+        String seriesName;
+        int seriesAge;
+        int numberOfEpisodes;
+
+        SeriesData(String seriesId, String seriesName, int seriesAge, int numberOfEpisodes)
+        {
+            this.seriesId = seriesId;
+            this.seriesName = seriesName;
+            this.seriesAge = seriesAge;
+            this.numberOfEpisodes = numberOfEpisodes;
+        }
+        
+         @Override
+        public String toString() 
+        {
+            return "ID: " + seriesId + ", Name: " + seriesName +
+                   ", Age Restriction: " + seriesAge +
+                   ", Episodes: " + numberOfEpisodes;
+        }
     
+}//End of inner class
     
-}
+}//End of class
