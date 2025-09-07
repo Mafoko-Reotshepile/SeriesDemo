@@ -132,6 +132,55 @@ public class Series
         System.out.println("Series not found!");
     }
     
+    //Delete series
+    public void deleteSeries() 
+    {
+        System.out.print("Enter Series ID to delete: ");
+        String id = scanner.nextLine();
+
+        for (SeriesData s : seriesList) 
+        {
+            if (s.seriesId.equals(id)) 
+            {
+                System.out.print("Are you sure you want to delete? (y/n): ");
+                if (scanner.nextLine().equalsIgnoreCase("y")) 
+                {
+                    seriesList.remove(s);
+                    System.out.println("Series deleted!");
+                }
+                return;
+            }
+        }
+        System.out.println("Series not found!");
+    }
     
+    //Print report
+    public void seriesReport() 
+    {
+        System.out.println("----- Series Report 2025 -----");
+        for (SeriesData s : seriesList) 
+        {
+            System.out.println(s);
+        }
+        System.out.println("------------------------------");
+    }
     
+    //Exit Application
+    public void exitSeriesApplication() 
+    {
+        System.out.println("Exiting application...");
+        System.exit(0);
+    }
+    
+    // Menu display
+    public void displayMenu() 
+    {
+        System.out.println("\nPlease select one of the following menu items:");
+        System.out.println("(1) Capture a new series");
+        System.out.println("(2) Search for a series");
+        System.out.println("(3) Update series");
+        System.out.println("(4) Delete a series");
+        System.out.println("(5) Print series report - 2025");
+        System.out.println("(6) Exit Application");
+    }
 }//End of class
