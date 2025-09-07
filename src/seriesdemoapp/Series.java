@@ -38,5 +38,33 @@ public class Series
     
 }//End of inner class
     private ArrayList<SeriesData> seriesList = new ArrayList<>();
-    private Scanner scanner = new Scanner(System.in);   
+    private Scanner scanner = new Scanner(System.in);
+    
+    //Capture a new series method
+    public void captureSeries() {
+        System.out.print("Enter Series ID: ");
+        String id = scanner.nextLine();
+
+        System.out.print("Enter Series Name: ");
+        String name = scanner.nextLine();
+
+        int age;
+        while (true) {
+            System.out.print("Enter Age Restriction (2 - 18): ");
+            try {
+                age = Integer.parseInt(scanner.nextLine());
+                if (age >= 2 && age <= 18) break;
+                else System.out.println("Invalid! Age must be between 2 and 18.");
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid! Please enter a number.");
+            }
+        }
+
+        System.out.print("Enter Number of Episodes: ");
+        int episodes = Integer.parseInt(scanner.nextLine());
+
+        seriesList.add(new SeriesData(id, name, age, episodes));
+        System.out.println("Series captured successfully!");
+    }    
+    
 }//End of class
