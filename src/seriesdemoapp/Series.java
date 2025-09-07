@@ -41,7 +41,8 @@ public class Series
     private Scanner scanner = new Scanner(System.in);
     
     //Capture a new series method
-    public void captureSeries() {
+    public void captureSeries() 
+    {
         System.out.print("Enter Series ID: ");
         String id = scanner.nextLine();
 
@@ -49,13 +50,17 @@ public class Series
         String name = scanner.nextLine();
 
         int age;
-        while (true) {
+        while (true) 
+        {
             System.out.print("Enter Age Restriction (2 - 18): ");
-            try {
+            try 
+            {
                 age = Integer.parseInt(scanner.nextLine());
                 if (age >= 2 && age <= 18) break;
                 else System.out.println("Invalid! Age must be between 2 and 18.");
-            } catch (NumberFormatException e) {
+            } 
+            catch (NumberFormatException e) 
+            {
                 System.out.println("Invalid! Please enter a number.");
             }
         }
@@ -65,6 +70,68 @@ public class Series
 
         seriesList.add(new SeriesData(id, name, age, episodes));
         System.out.println("Series captured successfully!");
-    }    
+    }
+
+    //Search for a series method
+    public void searchSeries() 
+    {
+        System.out.print("Enter Series ID to search: ");
+        String id = scanner.nextLine();
+
+        for (SeriesData s : seriesList) 
+        {
+            if (s.seriesId.equals(id)) 
+            {
+                System.out.println("Found: " + s);
+                return;
+            }
+        }
+        System.out.println("Series not found!");
+    }
+
+    //Update series
+    public void updateSeries() 
+    {
+        System.out.print("Enter Series ID to update: ");
+        String id = scanner.nextLine();
+
+        for (SeriesData s : seriesList) 
+        {
+            if (s.seriesId.equals(id)) 
+            {
+                System.out.print("Enter new Series Name: ");
+                s.seriesName = scanner.nextLine();
+
+                int age;
+                while (true) 
+                {
+                    System.out.print("Enter new Age Restriction (2 - 18): ");
+                    try 
+                    {
+                        age = Integer.parseInt(scanner.nextLine());
+                        if (age >= 2 && age <= 18) 
+                        {
+                            s.seriesAge = age;
+                            break;
+                        } 
+                        else System.out.println("Invalid! Age must be between 2 and 18.");
+                    } 
+                    catch (NumberFormatException e) 
+                    {
+                        System.out.println("Invalid! Please enter a number.");
+                    }
+                }
+
+                System.out.print("Enter new Number of Episodes: ");
+                s.numberOfEpisodes = Integer.parseInt(scanner.nextLine());
+
+                System.out.println("Series updated successfully!");
+                return;
+            }
+        }
+        System.out.println("Series not found!");
+    }
+    
+    
     
 }//End of class
