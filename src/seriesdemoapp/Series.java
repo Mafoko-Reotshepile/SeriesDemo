@@ -183,4 +183,19 @@ public class Series
         System.out.println("(5) Print series report - 2025");
         System.out.println("(6) Exit Application");
     }
+    
+     public void handleMenuChoice() {
+        String choice = scanner.nextLine();
+        switch (choice) 
+        {
+            case "1": captureSeries(); break;
+            case "2": searchSeries(); break;
+            case "3": updateSeries(); break;
+            case "4": deleteSeries(); break;
+            case "5": seriesReport(); break;
+            case "6": exitSeriesApplication(); break;
+            default: System.out.println("Invalid choice, try again.");
+        }
+        
+    }    
 }//End of class
