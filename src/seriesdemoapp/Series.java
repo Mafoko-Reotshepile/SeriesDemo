@@ -11,16 +11,16 @@ import java.util.Scanner;
  *
  * @author RC_Student_lab
  */
-public class Series 
+public  class Series 
 {
-    class SeriesData 
+    public static class SeriesData 
     {
-        String seriesId;
-        String seriesName;
-        int seriesAge;
-        int numberOfEpisodes;
+       public String seriesId;
+       public String seriesName;
+       public int seriesAge;
+       public int numberOfEpisodes;
 
-        SeriesData(String seriesId, String seriesName, int seriesAge, int numberOfEpisodes)
+       public  SeriesData(String seriesId, String seriesName, int seriesAge, int numberOfEpisodes)
         {
             this.seriesId = seriesId;
             this.seriesName = seriesName;

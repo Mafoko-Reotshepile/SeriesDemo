@@ -27,7 +27,7 @@ public class SeriesDemoApp {
             while (true) 
             {
                 seriesApp.displayMenu();
-                seriesApp.handleMenuChoice();
+                seriesApp.shandleMenuChoice();
             }
         } 
         else 
